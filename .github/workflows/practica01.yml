@@ -1,0 +1,21 @@
+name: Compilar Practica 01 ESP32
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Practica 01-led/**"
+      - ".github/workflows/practica01.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar PlatformIO
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install platformio
+      - name: Compilar LED ESP32
+        run: .venv/bin/pio run --project-dir "Practica 01-led"
