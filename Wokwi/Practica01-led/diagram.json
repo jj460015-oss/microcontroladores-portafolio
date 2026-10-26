@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "author": "Josué Eliseo Jiménez Herrera",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "id": "esp",
+      "type": "board-esp32-devkit-c-v4",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "id": "led1",
+      "type": "wokwi-led",
+      "top": 30,
+      "left": 250,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "id": "r1",
+      "type": "wokwi-resistor",
+      "top": 130,
+      "left": 160,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:2",
+      "r1:1",
+      "green",
+      []
+    ],
+    [
+      "r1:2",
+      "led1:A",
+      "green",
+      []
+    ],
+    [
+      "led1:C",
+      "esp:GND.1",
+      "black",
+      []
+    ]
+  ]
+}
